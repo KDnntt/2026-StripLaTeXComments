@@ -1,0 +1,16 @@
+TO DO:
+
+2026-05-23
+OFTEN WANT TO KEEP THINGS COMMENTED IN PREAMBLE.
+# Preamble: anything before first of \begin{document} (sometimes in a separate file) OR \maketitle
+# Ask whether file contains preamble (sometimes it's separate)
+# and how to treat comments therein
+# a) ignore all %s (skip until find \begin{document} or \maketitle line)
+# b) ignore %s that truncate line (usually explain something)
+# c) ignore start of line %s only (unlikely if not ignoring all)
+## => module titled "handle_preamble"
+
+2026-05-23:
+Doesn't check for end of line comments that break a paragraph (i.e. that are not followed by a blank line or %)
+Leaves in multiple blank lines when commented lines are separated by them.
+(But these are very quick to remove during editing, so not worth the effort.)
