@@ -50,7 +50,7 @@ def copy_with_date(source_file_stem, do_date):
 def keep_copy_or_not(source_file_stem, today):
     """
     Prompt behaviour - new file or replace (keep old version with comments  or not).
-    write this so it's repeated until y/n (or q for quit) received
+    repeated until y/n (or q for quit) received
     use tolower(input) so don't worry about caps.
     """
     while True:
@@ -67,3 +67,21 @@ def keep_copy_or_not(source_file_stem, today):
             sys.exit()
         else:
             print("Invalid input. Enter y (create copy), n (don't create copy), or q (quit).")
+
+def preserve_double_percents():
+    """
+    Prompt behaviour - keep lines starting with %% (i.e., things likely to switch on or off)
+    repeated until y/n received
+    use tolower(input) so don't worry about caps.
+    """
+    while True:
+        keep_doubles = input("Keep comment lines starting with %%? (y/n; q to quit) ").lower()
+        if keep_doubles == 'y':
+            print("Comment lines starting with %% are being retained.")
+            break
+        if keep_doubles == 'n':
+            print("Comment lines starting with %% are being deleted.")
+            break
+        else:
+            print("Invalid input. Enter y (keep lines starting %%), n (delete lines starting %%)")
+    return keep_doubles

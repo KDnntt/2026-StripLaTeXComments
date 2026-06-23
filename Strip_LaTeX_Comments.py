@@ -37,6 +37,9 @@ today = str(date.today())
 
 #create copy of old version (dated) if requested
 mcp.keep_copy_or_not(source_file_stem, today)
+keep_doubles = mcp.preserve_double_percents()
+
+print(keep_doubles)
 
 cut_filename = "Cut-"+today+".tex"
 clean_filename = "new_"+FILE_TO_CLEAN #replace old file with new
@@ -49,6 +52,12 @@ with open(FILE_TO_CLEAN, 'r') as filein:
         if "%" not in line:
             l = clwr.clean_spaces(line)
             cleanout.write(l)
+        elif line.startswith("%%"): #keep double comments
+            if keep_doubles == "y":
+                l = clwr.clean_spaces(line)
+                cleanout.write(l)           
+            else:
+                cutout.write(line)
         elif line.startswith("%"):
             #print("comment line")
             cutout.write(line)

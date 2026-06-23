@@ -14,3 +14,6 @@ OFTEN WANT TO KEEP THINGS COMMENTED IN PREAMBLE.
 Doesn't check for end of line comments that break a paragraph (i.e. that are not followed by a blank line or %)
 Leaves in multiple blank lines when commented lines are separated by them.
 (But these are very quick to remove during editing, so not worth the effort.)
+
+2026-05-23:
+Ask whether to stop when reach first occurrence of \end{document} - dump everything after into cut file.
