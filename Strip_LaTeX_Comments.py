@@ -39,8 +39,6 @@ today = str(date.today())
 mcp.keep_copy_or_not(source_file_stem, today)
 keep_doubles = mcp.preserve_double_percents()
 
-print(keep_doubles)
-
 cut_filename = "Cut-"+today+".tex"
 clean_filename = "new_"+FILE_TO_CLEAN #replace old file with new
 
